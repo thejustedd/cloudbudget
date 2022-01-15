@@ -1,0 +1,63 @@
+.burger-btn {
+  position: relative;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 18px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media (min-width: $md) {
+    display: none;
+  }
+
+  span,
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #FFF;
+    transition: all .3s ease-out;
+  }
+
+  span {
+    top: 50%;
+    transform: translateY(-50%) scale(1);
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    width: 50%;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &._active {
+    span {
+      top: 50%;
+      transform: translateY(-50%) scale(0);
+    }
+
+    &::before {
+      top: 50%;
+      transform: rotate(-45deg) translateY(-50%);
+    }
+
+    &::after {
+      bottom: 50%;
+      width: 100%;
+      transform: rotate(45deg) translateY(50%);
+    }
+  }
+}

@@ -1,0 +1,147 @@
+@use 'sass:math';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: math.div($font-size, 16) + rem;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.4;
+
+  //transition: width .3s ease-out;
+  //overflow-x: hidden;
+
+  @media (max-width: $max-md) {
+    &._lock {
+      overflow: hidden;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  //&:hover {
+  //  text-decoration: underline;
+  //}
+}
+
+.link {
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 0;
+    height: 1px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: $accent-color;
+    transition: all .3s ease-out;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+p {
+  margin: 0;
+
+  & + & {
+    margin-top: 1em;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: 1px solid #FFF;
+  border-radius: 6px;
+  text-transform: uppercase;
+  line-height: 1;
+  background-color: transparent;
+  color: #FFF;
+  transition: all .3s ease-out;
+
+  &:hover {
+    background-color: #FFF;
+    color: $accent-color;
+    text-decoration: none;
+  }
+
+  &_white {
+    background-color: #FFF;
+    color: $accent-color;
+
+    &:hover {
+      background-color: transparent;
+      border-color: #FFF;
+      color: #FFF;
+    }
+  }
+
+  &_red {
+    background-color: $accent-color;
+    border-color: $accent-color;
+
+    &:hover {
+      background-color: transparent;
+      //color: $accent-color;
+    }
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: rem(36);
+  line-height: math.div(43, 36);
+}
+
+.second-title {
+  font-weight: bold;
+  font-size: rem(18);
+  line-height: math.div(22, 18);
+  color: #101010;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: #101010;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.logo {
+  // .logo__img
+  &__img {
+    //display: block;
+  }
+}

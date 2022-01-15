@@ -1,0 +1,19 @@
+// базовые подключения
+@import 'node_modules/normalize.css/normalize';
+@import 'functions';
+@import 'vars';
+@import 'mixins';
+@import 'fonts';
+@import 'global';
+@import 'style';
+
+// компоненты страницы
+
+// подключения компонентов страницы (большие компоненты)
+
+// подключения компонентов страницы (маленькие компоненты)
+@import 'components/burger';
+@import 'components/select';
+
+// подключение медиа запросов
+@import 'media';

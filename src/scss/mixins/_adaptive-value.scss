@@ -1,0 +1,29 @@
+//Адаптивное свойство
+@mixin adaptive-value($property, $startSize, $minSize, $type: 1) {
+  $addSize: $startSize - $minSize;
+  @if $type==1 {
+    //Только если меньше контейнера
+    #{$property}: $startSize + px;
+    @media (max-width: #{$fullContainerWidth + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$fullContainerWidth - $minWidth}));
+    }
+  } @else if $type==2 {
+    //Только если больше контейнера
+    #{$property}: $startSize + px;
+    @media (min-width: #{$fullContainerWidth + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}));
+    }
+  } @else {
+    //Всегда
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}));
+  }
+}
+
+//Адаптивное свойство до
+@mixin adaptive-value-to($property, $startSize, $minSize, $minWidth) {
+  $addSize: $startSize - $minSize;
+  //#{$property}: $minSize + px;
+  @media (min-width: #{$minWidth + px}) {
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * (((100vw - #{$minWidth + px})) / ((#{$maxWidth - $minWidth}))));
+  }
+}

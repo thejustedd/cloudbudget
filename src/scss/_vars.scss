@@ -1,0 +1,29 @@
+:root {
+  --default-header-height: 60px;
+  --header-height: var(--default-header-height);
+}
+
+$minWidth: 320;
+$maxWidth: 1440;
+$containerWidth: 1110;
+$containerPadding: 15;
+$fullContainerWidth: $containerWidth + $containerPadding * 2;
+
+$font-size: 14;
+$accent-color: #ED4C5C;
+
+// Breakpoints
+//$xs: 0;
+$sm: em(576, 16);
+$md: em(768, 16);
+$lg: em(992, 16);
+$xl: em(1200, 16);
+$xxl: em(1400, 16);
+
+$step: em(0.02, 16);
+
+$max-sm: calc(#{$sm} - #{$step});
+$max-md: calc(#{$md} - #{$step});
+$max-lg: calc(#{$lg} - #{$step});
+$max-xl: calc(#{$xl} - #{$step});
+$max-xxl: calc(#{$xxl} - #{$step});

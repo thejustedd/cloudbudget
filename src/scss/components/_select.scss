@@ -1,0 +1,124 @@
+.select {
+  min-width: 96px;
+  position: relative;
+  cursor: pointer;
+  line-height: 1;
+
+  // .select__header
+  &__header {
+    max-width: 290px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 3px;
+    //transition: font-weight .3s ease-out;
+
+    //&:hover {
+    //  font-weight: 700;
+    //}
+  }
+
+  // .select__current
+  &__current {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    line-height: 1;
+    user-select: none;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 32px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%
+    }
+  }
+
+  // .select__btn
+  &__btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    pointer-events: none;
+  }
+
+  // .select__btn-image
+  &__btn-image {
+    line-height: 1;
+    transition: transform .3s ease-out;
+  }
+
+  // .select__body
+  &__body {
+    min-width: 100%;
+    margin-top: 5px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s ease-out;
+    background-color: rgba(#000, .5);
+  }
+
+  // .select__item
+  &__item {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding: 5px 10px;
+    line-height: 1;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 22px;
+      height: 22px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+    }
+
+    &:hover,
+    &[aria-selected] {
+      background-color: #FFF;
+      color: $accent-color;
+    }
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+
+  [data-lang='en']::before {
+    background-image: url('../../img/lang/flag-usa.svg');
+  }
+
+  [data-lang='ru']::before {
+    background-image: url('../../img/lang/flag-ru.svg');
+  }
+
+  [data-lang='ua']::before {
+    background-image: url('../../img/lang/flag-ua.svg');
+  }
+
+  &._open {
+    .select__body {
+      //visibility: visible;
+      pointer-events: all;
+      opacity: 1;
+    }
+
+    .select__btn-image {
+      transform: scale(-1);
+    }
+  }
+}
